@@ -1,10 +1,14 @@
-function Court() {
+import Basketball from "./Basketball";
 
-    return (
-      <>
-        
-      </>
-    )
-  }
-  
-  export default Court;
+function Court() {
+  return (
+   <>
+   <div className="container">
+    <div className="court"></div>
+   </div>
+
+   </>
+     );
+}
+
+export default Court;

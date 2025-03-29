@@ -1,11 +1,38 @@
-:root {
 
-  color-scheme: light dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+
+body {
+  margin: 0;
+  padding:0;
+  background-attachment: fixed;
+  background-color: #ff8e00; /* Ensures pure black background */
+  background-image: url(./assets/noise.svg);
+  background-repeat: repeat; /* Tiles the noise properly */
+  background-size: 400px; /* Adjust size for the effect */
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* GLOBAL */
+
+.container {
+  width: 80%;
+  margin: 0 auto;   
+  max-width: 1000px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
