@@ -4,7 +4,9 @@ function Court() {
   return (
    <>
    <div className="container">
-    <div className="court"></div>
+    <div className="court">
+      <Basketball />
+    </div>
    </div>
 
    </>
