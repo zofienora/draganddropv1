@@ -7,4 +7,12 @@
   background-image: url(./assets/noise.svg);
   border: 2px solid whitesmoke;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden; /* Prevents ball from going outside */
+
+}
+
+
+.basketball {
+  cursor: grab;
 }
