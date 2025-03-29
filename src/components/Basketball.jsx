@@ -1,24 +1,22 @@
 import imageBasketball from "../assets/basketball.png";
-import useDrag from "./useDrag";
+import useDragger from "./Usedragger"; // Correct import path for useDragger
 
 function Basketball() {
-  const { isDragging, handleMouseDown, position } = useDrag();
+  useDragger("basketball"); // Call the custom hook with the id of the element
 
   return (
     <img
+      id="basketball" // Assign id here so it matches the useDragger hook
       src={imageBasketball}
       alt="Basketball"
       className="basketball"
       style={{
-        width: "50px",
-        height: "50px",
+        width: "80px",
+        height: "80px",
         position: "absolute",
-        cursor: isDragging ? "grabbing" : "grab",
-        left: `${position.x - 25}px`, // Offset the ball by half its width to center
-        top: `${position.y - 25}px`,  // Offset the ball by half its height to center
-        zIndex: isDragging ? 10 : 1,  // Make the ball float above when dragging
+        cursor: "grab",  // You can update this based on your state if needed
+        zIndex: 10, // To ensure it's above other elements
       }}
-      onMouseDown={handleMouseDown} // Trigger drag on mouse down
     />
   );
 }
