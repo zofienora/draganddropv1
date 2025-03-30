@@ -15,3 +15,12 @@
   cursor: pointer;
   position: fixed;
 }
+
+#header {
+  color: white;
+  font-size: 7px;
+  text-align: center;
+  margin-top: 35px;
+  font-family: 'Courier New', Courier, monospace
+  ;
+}
