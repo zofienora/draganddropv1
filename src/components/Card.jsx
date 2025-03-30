@@ -1,9 +1,51 @@
+import { useState, useRef } from "react";
+
+
 function Card() {
+    const cardRef = useRef(null);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [dragging, setDragging] = useState(false);
+    const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+
+    const mouseDown = (e) => {
+        setDragging(true);
+        setStartPos({ x: e.clientX, y: e.clientY });
+    };
+
+    const mouseMove = (e) => {
+        if (!dragging) return;
+        
+        const newX = e.clientX - startPos.x;
+        const newY = e.clientY - startPos.y;
+
+        setPosition((prev) => ({
+            x: prev.x + newX,
+            y: prev.y + newY,
+        }));
+
+        setStartPos({ x: e.clientX, y: e.clientY });
+    };
+
+    const mouseUp = () => {
+        setDragging(false);
+    };
+
     return (
         <>
             <div id="container">
-                <div 
-                    id="card">
+                <div
+                    id="card"
+                    ref={cardRef}
+                    onMouseDown={mouseDown}
+                    onMouseMove={mouseMove}
+                    onMouseUp={mouseUp}
+                    style={{
+                        position: "absolute",
+                        top: `${position.y}px`,
+                        left: `${position.x}px`,
+                        cursor: "grab",
+                    }}
+                >
                     <div id="header">
                         <h1>Drag me!</h1>
                     </div>
@@ -17,33 +59,3 @@ export default Card;
 
 
 
-/* let newX = 0, newY = 0, startX = 0, startY = 0;
-
-const card = document.getElementById('card')
-
-card.addEventListener('mousedown', mouseDown)
-
-function mouseDown(e){
-    startX = e.clientX
-    startY = e.clientY
-
-    document.addEventListener('mousemove', mouseMove)
-    document.addEventListener('mouseup', mouseUp)
-}
-
-function mouseMove(e){
-    newX = startX - e.clientX 
-    newY = startY - e.clientY 
-  
-    startX = e.clientX
-    startY = e.clientY
-
-    card.style.top = (card.offsetTop - newY) + 'px'
-    card.style.left = (card.offsetLeft - newX) + 'px'
-}
-
-function mouseUp(e){
-    document.removeEventListener('mousemove', mouseMove)
-}
-
-*/
