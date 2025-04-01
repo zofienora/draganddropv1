@@ -1,4 +1,4 @@
-# Drag-and-Drop V1
+# Drag and Drop, Version 1
 
 ## Overview
 
